@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>addEventListener()</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<p>
+			<button class="click-me" id="click-me-1">Click Me</button>
+		</p>
+
+
+		<!-- Scripts -->
+		<script>
+			// Listen for clicks on an element
+			var btn = document.querySelector( '#click-me-1' );
+			btn.addEventListener('click', function ( event ) {
+				console.log('The button was clicked!');
+				console.log(event); // The event details
+				console.log(event.target); // The clicked element
+			}, false);
+		</script>
+	</body>
+</html>

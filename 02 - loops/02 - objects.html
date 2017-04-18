@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Objects</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<p>Hello, world!</p>
+
+
+		<!-- Scripts -->
+		<script>
+			var lunch = {
+				sandwich: 'ham',
+				snack: 'chips',
+				drink: 'soda',
+				desert: 'cookie',
+				guests: 3,
+				alcohol: false,
+			};
+
+			for ( var key in lunch ) {
+				if ( Object.prototype.hasOwnProperty.call( lunch, key ) ) {
+					console.log(key); // key
+					console.log(lunch[key]); // value
+				}
+			}
+		</script>
+	</body>
+</html>

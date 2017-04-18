@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Multiple Listeners</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<p>
+			<button class="click-me" id="click-me-1">Click Me</button>
+			<button class="click-me" id="click-me-2">Click Me, Too</button>
+			<button class="click-me" id="click-me-3">Don't You Forget About Me</button>
+			<button class="dont-click-me" id="dont-click-me">Clicking Me Does Nothing</button>
+		</p>
+
+
+		<!-- Scripts -->
+		<script>
+			// Setup our function to run on various events
+			var someFunction = function ( event ) {
+				console.log('The following event happened: ' + event.type);
+			};
+
+			// Add our event listeners
+			// (Hover over and then off of the first button to trigger this one)
+			btn.addEventListener( 'click', someFunction, false );
+			btn.addEventListener( 'mouseout', someFunction, false );
+		</script>
+	</body>
+</html>

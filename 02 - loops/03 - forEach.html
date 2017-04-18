@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>forEach()</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<p>Hello, world!</p>
+
+
+		<!-- Scripts -->
+		<script>
+			/*! foreach.js v1.1.0 | (c) 2014 @toddmotto | https://github.com/toddmotto/foreach */
+			var forEach = function (collection, callback, scope) {
+				if (Object.prototype.toString.call(collection) === '[object Object]') {
+					for (var prop in collection) {
+						if (Object.prototype.hasOwnProperty.call(collection, prop)) {
+							callback.call(scope, collection[prop], prop, collection);
+						}
+					}
+				} else {
+					for (var i = 0, len = collection.length; i < len; i++) {
+						callback.call(scope, collection[i], i, collection);
+					}
+				}
+			};
+
+			// Log each sandwich
+			forEach(sandwiches, function (sandwich, index) {
+				console.log(index); // index
+				console.log(sandwich); // value
+			});
+
+			// Log each lunch item, skipping soda
+			forEach(lunch, function (item, key) {
+
+				// Skips to the next item.
+				// No way to terminate the loop
+				if ( item === 'soda' ) return;
+
+				console.log(key); // key
+				console.log(item); // value
+
+			});
+		</script>
+	</body>
+</html>

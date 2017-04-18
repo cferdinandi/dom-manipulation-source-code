@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>style</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			div {
+				background-color: #f7f7f7;
+				margin: 0 0 1em;
+				padding: 0.5em 1em;
+			}
+
+			.bg-red,
+			.bg-blue,
+			.bg-navy {
+				color: #ffffff;
+			}
+
+			.bg-red {
+				background-color: #cb070e;
+			}
+
+			.bg-blue {
+				background-color: #0088cc;
+			}
+
+			.bg-navy {
+				background-color: #343d4d;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="bg-navy" id="a" data-sandwich="tuna" style="font-weight: bold; font-style: italic;">.bg-navy #a [data-sandwich="tuna"]</div>
+
+		<div class="bg-blue" id="b" data-sandwich="turkey">.bg-blue #b [data-sandwich="turkey"]</div>
+
+		<div class="bg-red" id="c" data-sandwich="turkey">.bg-red #c [data-sandwich="turkey"]</div>
+
+
+		<!-- Scripts -->
+		<script>
+			var elem = document.querySelector( '#a' );
+
+			// Get an inline style
+			// If this style is not set as an inline style directly on the element, it returns an empty string
+			var fontWeight = elem.style.fontWeight;
+			var bgColor = elem.style.backgroundColor;
+			console.log(fontWeight);
+			console.log(bgColor);
+
+			// Set an inline style
+			elem.style.backgroundColor = 'purple';
+			console.log(elem);
+		</script>
+	</body>
+</html>

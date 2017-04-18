@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Event Bubbling</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<p>
+			<button class="click-me" id="click-me-1">Click Me</button>
+			<button class="click-me" id="click-me-2">Click Me, Too</button>
+			<button class="click-me" id="click-me-3">Don't You Forget About Me</button>
+			<button class="dont-click-me" id="dont-click-me">Clicking Me Does Nothing</button>
+		</p>
+
+
+		<!-- Scripts -->
+		<script>
+			// Listen for clicks on the entire window
+			window.addEventListener('click', function ( event ) {
+
+				// If the clicked element has the `.click-me` class, it's a match!
+				if ( event.target.classList.contains( 'click-me' ) ) {
+					console.log('A button as clicked.');
+				} else {
+					console.log('Not a match!');
+				}
+
+			}, false);
+		</script>
+	</body>
+</html>
