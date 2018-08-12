@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>NodeList.forEach()</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div class="sandwich">Sandwich 1</div>
+
+		<div class="sandwich">Sandwich 2</div>
+
+		<div class="sandwich">Sandwich 3</div>
+
+		<div class="sandwich">Sandwich 4</div>
+
+		<div class="sandwich">Sandwich 5</div>
+
+
+		<!-- Scripts -->
+		<script>
+			/**
+			 * NodeList.prototype.forEach() polyfill
+			 * https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach#Polyfill
+			 */
+			if (window.NodeList && !NodeList.prototype.forEach) {
+				NodeList.prototype.forEach = function (callback, thisArg) {
+					thisArg = thisArg || window;
+					for (var i = 0; i < this.length; i++) {
+						callback.call(thisArg, this[i], i, this);
+					}
+				};
+			}
+
+			// Log each sandwich
+			var sandwiches = document.querySelectorAll('.sandwich');
+			sandwiches.forEach(function (sandwich, index) {
+				console.log(index); // index
+				console.log(sandwich); // value
+			});
+		</script>
+	</body>
+</html>

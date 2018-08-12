@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Object.keys(obj).forEach()</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<!-- Styles -->
+		<style type="text/css">
+			body {
+				max-width: 40em;
+				width: 88%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<p>Hello, world!</p>
+
+
+		<!-- Scripts -->
+		<script>
+			/**
+			 * Object.keys() polyfill
+			 */
+			// From https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+			if (!Object.keys) {
+				Object.keys = (function () {
+					'use strict';
+					var hasOwnProperty = Object.prototype.hasOwnProperty,
+						hasDontEnumBug = !({ toString: null }).propertyIsEnumerable('toString'),
+						dontEnums = [
+							'toString',
+							'toLocaleString',
+							'valueOf',
+							'hasOwnProperty',
+							'isPrototypeOf',
+							'propertyIsEnumerable',
+							'constructor'
+						],
+						dontEnumsLength = dontEnums.length;
+
+					return function (obj) {
+						if (typeof obj !== 'function' && (typeof obj !== 'object' || obj === null)) {
+							throw new TypeError('Object.keys called on non-object');
+						}
+
+						var result = [], prop, i;
+
+						for (prop in obj) {
+							if (hasOwnProperty.call(obj, prop)) {
+								result.push(prop);
+							}
+						}
+
+						if (hasDontEnumBug) {
+							for (i = 0; i < dontEnumsLength; i++) {
+								if (hasOwnProperty.call(obj, dontEnums[i])) {
+									result.push(dontEnums[i]);
+								}
+							}
+						}
+						return result;
+					};
+				}());
+			}
+
+			/**
+			 * Array.prototype.forEach() polyfill
+			 * @author Chris Ferdinandi
+			 * @license MIT
+			 */
+			if (window.Array && !Array.prototype.forEach) {
+				Array.prototype.forEach = function (callback, thisArg) {
+					thisArg = thisArg || window;
+					for (var i = 0; i < this.length; i++) {
+						callback.call(thisArg, this[i], i, this);
+					}
+				};
+			}
+
+			var lunch = {
+				sandwich: 'ham',
+				snack: 'chips',
+				drink: 'soda',
+				desert: 'cookie',
+				guests: 3,
+				alcohol: false,
+			};
+
+			Object.keys(lunch).forEach(function (item) {
+				console.log(item); // key
+				console.log(lunch[item]); // value
+			});
+		</script>
+	</body>
+</html>
