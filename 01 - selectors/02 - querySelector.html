@@ -92,17 +92,9 @@
 			// elemNone.id = 'new-id';
 
 			// Verify element exists before doing anything with it
-			if ( elemNone ) {
+			if (elemNone) {
 				// Do something...
 			}
-
-			// Get an element, and if not found, return a shadow element instead to prevent chaining errors
-			var getElem = function ( selector ) {
-				return document.querySelector( selector ) || document.createElement( '_' );
-			};
-
-			// This won't throw an error
-			getElem( '.does-not-exist' ).id = 'why-bother';
 		</script>
 	</body>
 </html>

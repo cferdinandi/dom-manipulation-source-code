@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>for</title>
+		<title>Array.forEach()</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Styles -->
@@ -28,10 +28,19 @@
 				'pb&j'
 			];
 
-			for (var i = 0; i < sandwiches.length; i++) {
-				console.log(i) // index
-				console.log(sandwiches[i]) // value
-			}
+			sandwiches.forEach(function (sandwich, index) {
+				console.log(index) // index
+				console.log(sandwich) // value
+			});
+
+			console.log('\n\n\n');
+
+			// Skip "ham"
+			sandwiches.forEach(function (sandwich, index) {
+				if (sandwich === 'ham') return;
+				console.log(index) // index
+				console.log(sandwich) // value
+			});
 		</script>
 	</body>
 </html>

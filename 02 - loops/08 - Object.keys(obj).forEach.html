@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>for</title>
+		<title>Object.keys(obj).forEach()</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Styles -->
@@ -21,17 +21,19 @@
 
 
 		<script>
-			var sandwiches = [
-				'tuna',
-				'ham',
-				'turkey',
-				'pb&j'
-			];
+			var lunch = {
+				sandwich: 'ham',
+				snack: 'chips',
+				drink: 'soda',
+				desert: 'cookie',
+				guests: 3,
+				alcohol: false,
+			};
 
-			for (var i = 0; i < sandwiches.length; i++) {
-				console.log(i) // index
-				console.log(sandwiches[i]) // value
-			}
+			Object.keys(lunch).forEach(function (item) {
+				console.log(item); // key
+				console.log(lunch[item]); // value
+			});
 		</script>
 	</body>
 </html>

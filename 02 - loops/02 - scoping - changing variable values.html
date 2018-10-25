@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>for</title>
+		<title>Scoping: Changing variable values</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Styles -->
@@ -21,16 +21,13 @@
 
 
 		<script>
-			var sandwiches = [
-				'tuna',
-				'ham',
-				'turkey',
-				'pb&j'
-			];
+			var sandwiches = ['turkey', 'tuna', 'chicken salad', 'pb&j'];
 
 			for (var i = 0; i < sandwiches.length; i++) {
-				console.log(i) // index
-				console.log(sandwiches[i]) // value
+				window.setTimeout(function () {
+					// This will always log "3"
+					console.log(i);
+				}, 1000)
 			}
 		</script>
 	</body>

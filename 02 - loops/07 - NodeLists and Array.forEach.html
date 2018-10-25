@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>for</title>
+		<title>NodeLists and Array.forEach()</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Styles -->
@@ -19,19 +19,15 @@
 
 	<body>
 
+		<p class="sandwiches">Tuna</p>
+		<p class="sandwiches">Ham</p>
+		<p class="sandwiches">Turkey</p>
+		<p class="sandwiches">PB&J</p>
 
 		<script>
-			var sandwiches = [
-				'tuna',
-				'ham',
-				'turkey',
-				'pb&j'
-			];
-
-			for (var i = 0; i < sandwiches.length; i++) {
-				console.log(i) // index
-				console.log(sandwiches[i]) // value
-			}
+			Array.from(document.querySelectorAll('.sandwiches')).forEach(function (sandwich, index) {
+				console.log(sandwich.textContent);
+			});
 		</script>
 	</body>
 </html>

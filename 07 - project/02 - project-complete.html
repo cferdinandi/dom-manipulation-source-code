@@ -64,40 +64,27 @@
 
 		<!-- Scripts -->
 		<script>
-			/**
-			 * NodeList.prototype.forEach() polyfill
-			 * https://developer.mozilla.org/en-US/docs/Web/API/NodeList/forEach#Polyfill
-			 */
-			if (window.NodeList && !NodeList.prototype.forEach) {
-				NodeList.prototype.forEach = function (callback, thisArg) {
-					thisArg = thisArg || window;
-					for (var i = 0; i < this.length; i++) {
-						callback.call(thisArg, this[i], i, this);
-					}
-				};
-			}
-
 			// Listen for clicks on the document
 			document.addEventListener('click', function (event) {
 
 				// Bail if our clicked element doesn't have the .accordion-toggle class
-				if ( !event.target.classList.contains('accordion-toggle') ) return;
+				if (!event.target.classList.contains('accordion-toggle')) return;
 
 				// Get the target content
 				var content = document.querySelector(event.target.hash);
-				if ( !content ) return;
+				if (!content) return;
 
 				// Prevent default link behavior
 				event.preventDefault();
 
 				// If the content is already expanded, collapse it and quit
-				if ( content.classList.contains('active') ) {
+				if (content.classList.contains('active')) {
 					content.classList.remove('active');
 					return;
 				}
 
-				// Get all accordion content, loop through it, and close it
-				var accordions = document.querySelectorAll('.accordion-content.active');
+				// Get all active accordion content, loop through it, and close it
+				var accordions = Array.from(document.querySelectorAll('.accordion-content.active'));
 				accordions.forEach(function (accordion) {
 					accordion.classList.remove('active');
 				});

@@ -19,10 +19,7 @@
 
 	<body>
 
-		<p>Hello, world!</p>
 
-
-		<!-- Scripts -->
 		<script>
 			var lunch = {
 				sandwich: 'ham',
@@ -34,7 +31,7 @@
 			};
 
 			for (var key in lunch) {
-				if (Object.prototype.hasOwnProperty.call(lunch, key)) {
+				if (lunch.hasOwnProperty(key)) {
 					console.log(key); // key
 					console.log(lunch[key]); // value
 				}

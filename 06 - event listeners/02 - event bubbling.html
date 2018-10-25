@@ -27,13 +27,20 @@
 		</p>
 
 
-		<!-- Scripts -->
 		<script>
+			/**
+			 * Element.matches() polyfill (simple version)
+			 * https://developer.mozilla.org/en-US/docs/Web/API/Element/matches#Polyfill
+			 */
+			if (!Element.prototype.matches) {
+				Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+			}
+
 			// Listen for clicks on the entire window
 			window.addEventListener('click', function ( event ) {
 
 				// If the clicked element has the `.click-me` class, it's a match!
-				if ( event.target.classList.contains( 'click-me' ) ) {
+				if ( event.target.matches('.click-me')) {
 					console.log('A button as clicked.');
 				} else {
 					console.log('Not a match!');
