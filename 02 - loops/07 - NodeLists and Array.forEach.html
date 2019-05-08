@@ -25,7 +25,9 @@
 		<p class="sandwiches">PB&J</p>
 
 		<script>
-			Array.from(document.querySelectorAll('.sandwiches')).forEach(function (sandwich, index) {
+			var sandwiches = Array.prototype.slice.call(document.querySelectorAll('.sandwiches'));
+			console.log(sandwiches);
+			sandwiches.forEach(function (sandwich, index) {
 				console.log(sandwich.textContent);
 			});
 		</script>

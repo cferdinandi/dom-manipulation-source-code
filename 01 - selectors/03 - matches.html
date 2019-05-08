@@ -72,38 +72,32 @@
 
 		<!-- Scripts -->
 		<script>
-			// Polyfill
+			/**
+			 * Element.matches() polyfill (simple version)
+			 * https://developer.mozilla.org/en-US/docs/Web/API/Element/matches#Polyfill
+			 */
 			if (!Element.prototype.matches) {
-				Element.prototype.matches =
-					Element.prototype.matchesSelector ||
-					Element.prototype.mozMatchesSelector ||
-					Element.prototype.msMatchesSelector ||
-					Element.prototype.oMatchesSelector ||
-					Element.prototype.webkitMatchesSelector ||
-					function(s) {
-						var matches = (this.document || this.ownerDocument).querySelectorAll(s),
-							i = matches.length;
-						while (--i >= 0 && matches.item(i) !== this) {}
-						return i > -1;
-					};
+				Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
 			}
 
 			// Get our elements
-			var elemRed = document.querySelector( '.bg-red' );
-			var elemCarrots = document.querySelector( '[data-snack="carrots"]' );
+			var elemRed = document.querySelector('.bg-red');
+			var elemCarrots = document.querySelector('[data-snack="carrots"]');
+			console.log(elemRed);
+			console.log(elemCarrots);
 
 			// Check for a turkey sandwich
-			if ( elemRed.matches( '[data-sandwich="turkey"]' ) ) {
-				console.log( 'turkey sandwich!' );
+			if (elemRed.matches('[data-sandwich="turkey"]')) {
+				console.log('turkey sandwich!');
 			} else {
-				console.log( 'Something else, ick... =(' );
+				console.log('Something else, ick... =(');
 			}
 
 			// Check for a red background
-			if ( elemCarrots.matches( '.bg-red' ) ) {
-				console.log( 'Red background, woohoo!' );
+			if (elemCarrots.matches('.bg-red')) {
+				console.log('Red background, woohoo!');
 			} else {
-				console.log( 'Nope, not red... =(' );
+				console.log('Nope, not red... =(');
 			}
 		</script>
 	</body>

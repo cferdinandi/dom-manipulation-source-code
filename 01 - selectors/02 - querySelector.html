@@ -73,19 +73,19 @@
 		<!-- Scripts -->
 		<script>
 			// The first div
-			var elem = document.querySelector( 'div' );
+			var elem = document.querySelector('div');
 			console.log(elem);
 
 			// The first div with the .bg-red class
-			var elemRed = document.querySelector( '.bg-red' );
+			var elemRed = document.querySelector('.bg-red');
 			console.log(elemRed);
 
 			// The first div with a data attribute of snack equal to carrots
-			var elemCarrots = document.querySelector( '[data-snack="carrots"]' );
+			var elemCarrots = document.querySelector('[data-snack="carrots"]');
 			console.log(elemCarrots);
 
 			// An element that doesn't exist
-			var elemNone = document.querySelector( '.bg-orange' );
+			var elemNone = document.querySelector('.bg-orange');
 			console.log(elemNone);
 
 			// This throws an error if uncommented
@@ -94,6 +94,7 @@
 			// Verify element exists before doing anything with it
 			if (elemNone) {
 				// Do something...
+				elemNone.id = 'new-id';
 			}
 		</script>
 	</body>
