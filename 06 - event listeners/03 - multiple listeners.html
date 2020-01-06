@@ -36,7 +36,7 @@
 			// This doesn't work
 			// window.addEventListener('click scroll', function (event) {
 			// 	console.log(event.type);
-			// }, false);
+			// });
 
 			// Setup our function to run on various events
 			var logTheEvent = function (event) {
@@ -44,8 +44,8 @@
 			};
 
 			// Add our event listeners
-			document.addEventListener('click', logTheEvent, false);
-			window.addEventListener('scroll', logTheEvent, false);
+			document.addEventListener('click', logTheEvent);
+			window.addEventListener('scroll', logTheEvent);
 		</script>
 	</body>
 </html>
