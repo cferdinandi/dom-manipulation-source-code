@@ -42,13 +42,13 @@
 			 * This works, but it's bad for performance
 			 * DON'T DO IT!
 			 */
-			var btns2 = Array.prototype.slice.call(document.querySelectorAll('.click-me'));
-			btns2.forEach(function (btn) {
-				btn.addEventListener('click', function (event) {
-					console.log(event); // The event details
-					console.log(event.target); // The clicked element
-				});
-			});
+			// var btns2 = Array.prototype.slice.call(document.querySelectorAll('.click-me'));
+			// btns2.forEach(function (btn) {
+			// 	btn.addEventListener('click', function (event) {
+			// 		console.log(event); // The event details
+			// 		console.log(event.target); // The clicked element
+			// 	});
+			// });
 
 
 			/**
