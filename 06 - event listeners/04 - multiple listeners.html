@@ -36,9 +36,13 @@
 			/**
 			 * This doesn't work
 			 */
-			// window.addEventListener('click, scroll', function (event) {
-			// 	console.log(event.type);
-			// });
+			window.addEventListener('click, scroll', function (event) {
+				console.log(event.type);
+			});
+
+			/**
+			 * Instead, use a named function
+			 */
 
 			// Setup our function to run on various events
 			var logTheEvent = function (event) {
