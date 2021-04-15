@@ -3,34 +3,38 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>Array.forEach()</title>
+		<title>Array.forEach() & NodeList.forEach()</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- Styles -->
 		<style type="text/css">
 			body {
+				margin: 0 auto;
 				max-width: 40em;
 				width: 88%;
-				margin-left: auto;
-				margin-right: auto;
 			}
 		</style>
 	</head>
 
 	<body>
 
+		<p class="sandwiches">Tuna</p>
+		<p class="sandwiches">Ham</p>
+		<p class="sandwiches">Turkey</p>
+		<p class="sandwiches">PB&J</p>
+
 
 		<script>
-			var sandwiches = [
-				'tuna',
-				'ham',
-				'turkey',
-				'pb&j'
-			];
-
+			// Array.forEach()
+			let sandwiches = ['turkey', 'tuna', 'ham', 'pb&j'];
 			sandwiches.forEach(function (sandwich, index) {
 				console.log(index); // index
 				console.log(sandwich); // value
+			});
+
+			// NodeList.forEach()
+			document.querySelectorAll('.sandwiches').forEach(function (sandwich, index, sandwiches) {
+				console.log(sandwich);
+				console.log(sandwiches);
 			});
 
 			// Skip "ham"

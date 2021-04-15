@@ -6,13 +6,11 @@
 		<title>Multiple Listeners</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- Styles -->
 		<style type="text/css">
 			body {
+				margin: 0 auto;
 				max-width: 40em;
 				width: 88%;
-				margin-left: auto;
-				margin-right: auto;
 			}
 		</style>
 	</head>
@@ -36,18 +34,19 @@
 			/**
 			 * This doesn't work
 			 */
-			window.addEventListener('click, scroll', function (event) {
-				console.log(event.type);
-			});
+			// window.addEventListener('click, scroll', function (event) {
+			// 	console.log(event.type);
+			// });
+
 
 			/**
 			 * Instead, use a named function
 			 */
 
 			// Setup our function to run on various events
-			var logTheEvent = function (event) {
+			function logTheEvent (event) {
 				console.log('The following event happened: ' + event.type);
-			};
+			}
 
 			// Add our event listeners
 			document.addEventListener('click', logTheEvent);

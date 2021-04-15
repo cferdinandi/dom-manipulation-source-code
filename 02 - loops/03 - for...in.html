@@ -5,23 +5,13 @@
 		<meta charset="utf-8">
 		<title>for...in</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-		<!-- Styles -->
-		<style type="text/css">
-			body {
-				max-width: 40em;
-				width: 88%;
-				margin-left: auto;
-				margin-right: auto;
-			}
-		</style>
 	</head>
 
 	<body>
 
 
 		<script>
-			var lunch = {
+			let lunch = {
 				sandwich: 'ham',
 				snack: 'chips',
 				drink: 'soda',
@@ -30,11 +20,9 @@
 				alcohol: false
 			};
 
-			for (var key in lunch) {
-				if (lunch.hasOwnProperty(key)) {
-					console.log(key); // key
-					console.log(lunch[key]); // value
-				}
+			for (let key in lunch) {
+				console.log(key); // key
+				console.log(lunch[key]); // value
 			}
 		</script>
 	</body>

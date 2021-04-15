@@ -3,16 +3,14 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>getComputedStyle</title>
+		<title>window.getComputedStyle</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- Styles -->
 		<style type="text/css">
 			body {
+				margin: 0 auto;
 				max-width: 40em;
 				width: 88%;
-				margin-left: auto;
-				margin-right: auto;
 			}
 
 			#sandwich {
@@ -28,11 +26,11 @@
 
 
 		<script>
-			var elem = document.querySelector('#sandwich');
+			let sandwich = document.querySelector('#sandwich');
 
 			// Get the computed style
-			var bgColor = window.getComputedStyle(elem).backgroundColor;
-			var height = window.getComputedStyle(elem).height;
+			let bgColor = window.getComputedStyle(sandwich).backgroundColor;
+			let height = window.getComputedStyle(sandwich).height;
 
 			console.log(bgColor);
 			console.log(height);

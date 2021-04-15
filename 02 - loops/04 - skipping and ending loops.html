@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Skipping and ending loops</title>
+	</head>
+
+	<body>
+
+
+		<script>
+			/**
+			 * Skipping a loop
+			 */
+			let sandwiches = ['turkey', 'tuna', 'ham', 'pb&j'];
+
+			for (let sandwich of sandwiches) {
+
+				// Skip to the next item in the loop
+				if (sandwich === 'ham') continue;
+
+				// console.log(sandwich);
+
+			}
+
+
+			/**
+			 * Breaking a loop
+			 */
+			let lunch = {
+				sandwich: 'ham',
+				snack: 'chips',
+				drink: 'soda',
+				desert: 'cookie',
+				guests: 3,
+				alcohol: false,
+			};
+
+			for (let key in lunch) {
+				if (key === 'drink') break;
+				console.log(lunch[key]);
+			}
+		</script>
+	</body>
+</html>

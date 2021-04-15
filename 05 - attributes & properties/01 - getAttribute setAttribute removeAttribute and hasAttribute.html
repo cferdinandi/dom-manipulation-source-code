@@ -3,16 +3,14 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>getAttribute(), setAttribute(), and hasAttribute()</title>
+		<title>Element.getAttribute(), Element.setAttribute(), Element.removeAttribute(), and Element.hasAttribute()</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- Styles -->
 		<style type="text/css">
 			body {
+				margin: 0 auto;
 				max-width: 40em;
 				width: 88%;
-				margin-left: auto;
-				margin-right: auto;
 			}
 		</style>
 	</head>
@@ -21,26 +19,27 @@
 
 		<p id="lunch" data-sandwich="tuna" data-chips="Cape Cod" data-drink="soda">Lunch Order</p>
 
-		<script>
-			var elem = document.querySelector('#lunch');
 
-			// Get the value of an attribute
-			var sandwich = elem.getAttribute('data-sandwich');
+		<script>
+			let elem = document.querySelector('#lunch');
+
+			// Get the value of the [data-sandwich] attribute
+			let sandwich = elem.getAttribute('data-sandwich');
 			console.log(sandwich);
 
-			// Set an attribute value
+			// Set a value for the [data-sandwich] attribute
 			elem.setAttribute('data-sandwich', 'turkey');
 
-			// Remove an attribute
+			// Remove the [data-chips] attribute
 			elem.removeAttribute('data-chips');
 
-			// Check if an element has an attribute
+			// Check if an element has the `[data-drink]` attribute
 			if (elem.hasAttribute('data-drink')) {
 				console.log('Add a drink!');
 			}
 
-			// Log the ID of the element
-			console.log(elem.getAttribute('id'));
+			let id = elem.getAttribute('id');
+			console.log(id);
 		</script>
 	</body>
 </html>

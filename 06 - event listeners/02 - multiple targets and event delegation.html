@@ -6,13 +6,11 @@
 		<title>Event Bubbling</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- Styles -->
 		<style type="text/css">
 			body {
+				margin: 0 auto;
 				max-width: 40em;
 				width: 88%;
-				margin-left: auto;
-				margin-right: auto;
 			}
 		</style>
 	</head>
@@ -28,10 +26,12 @@
 
 
 		<script>
+			// Get all the buttons
+			let btns = document.querySelectorAll('.click-me');
+
 			/**
 			 * This won't work
 			 */
-			// var btns = document.querySelectorAll('.click-me');
 			// btns.addEventListener('click', function (event) {
 			// 	console.log(event); // The event details
 			// 	console.log(event.target); // The clicked element
@@ -42,20 +42,19 @@
 			 * This works, but it's bad for performance
 			 * DON'T DO IT!
 			 */
-			// var btns2 = Array.prototype.slice.call(document.querySelectorAll('.click-me'));
-			// btns2.forEach(function (btn) {
+			// for (let btn of btns) {
 			// 	btn.addEventListener('click', function (event) {
 			// 		console.log(event); // The event details
 			// 		console.log(event.target); // The clicked element
 			// 	});
-			// });
+			// }
 
 
 			/**
 			 * A better approach: Event Delegation
-			 * Listen for clicks on the entire window
+			 * Listen for clicks on the entire document
 			 */
-			window.addEventListener('click', function (event) {
+			document.addEventListener('click', function (event) {
 
 				// If the clicked element has the `.click-me` class, it's a match!
 				if (event.target.matches('.click-me')) {

@@ -3,16 +3,14 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>style</title>
+		<title>Element.style</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- Styles -->
 		<style type="text/css">
 			body {
+				margin: 0 auto;
 				max-width: 40em;
 				width: 88%;
-				margin-left: auto;
-				margin-right: auto;
 			}
 		</style>
 	</head>
@@ -23,17 +21,29 @@
 
 
 		<script>
-			var elem = document.querySelector('#sandwich');
+			let sandwich = document.querySelector('#sandwich');
 
 			// Get an inline style
 			// If this style is not set as an inline style directly on the element, it returns an empty string
-			var bgColor = elem.style.backgroundColor;
-			var fontWeight = elem.style.fontWeight;
+			let bgColor = sandwich.style.backgroundColor;
+			let fontWeight = sandwich.style.fontWeight;
 			console.log(bgColor);
 			console.log(fontWeight);
 
 			// Set an inline style
-			elem.style.backgroundColor = 'purple';
+			sandwich.style.backgroundColor = 'purple';
+
+
+
+			// Get the styles on an element
+			let styles = sandwich.style.cssText;
+			console.log(styles);
+
+			// Completely replace the inline styles on an element
+			sandwich.style.cssText = 'font-size: 2em; font-weight: bold;';
+
+			// Add additional styles
+			sandwich.style.cssText += 'color: purple;';
 		</script>
 	</body>
 </html>

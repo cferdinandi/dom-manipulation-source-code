@@ -3,16 +3,15 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>className</title>
+		<title>Element.className</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Styles -->
 		<style type="text/css">
 			body {
+				margin: 0 auto;
 				max-width: 40em;
 				width: 88%;
-				margin-left: auto;
-				margin-right: auto;
 			}
 
 			.tuna {
@@ -39,10 +38,10 @@
 
 
 		<script>
-			var elem = document.querySelector('#sandwich');
+			let elem = document.querySelector('#sandwich');
 
 			// Get all of the classes on an element
-			var elemClasses = elem.className;
+			let elemClasses = elem.className;
 			console.log(elemClasses);
 
 			// Add a class to an element

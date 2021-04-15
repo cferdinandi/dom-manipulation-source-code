@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>document.querySelectorAll()</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<style type="text/css">
+			body {
+				margin: 0 auto;
+				max-width: 40em;
+				width: 88%;
+			}
+
+			.bg-red {
+				background-color: #cb070e;
+				color: #ffffff;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<p>
+			<button data-snack>1</button>
+			<button class="bg-red">2</button>
+			<button>3</button>
+			<button data-snack>4</button>
+			<button class="bg-red" data-snack>5</button>
+		</p>
+
+
+		<script>
+			// Get all button elements
+			let buttons = document.querySelectorAll('button');
+			console.log(buttons);
+
+			// Get all elements with the .bg-red class
+			let elemsRed = document.querySelectorAll('.bg-red');
+			console.log(elemsRed);
+
+			// Get all elements with the [data-snack] attribute
+			let elemsSnacks = document.querySelectorAll('[data-snack]');
+			console.log(elemsSnacks);
+		</script>
+	</body>
+</html>

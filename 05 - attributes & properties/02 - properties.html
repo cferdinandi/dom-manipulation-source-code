@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Element Properties</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<style type="text/css">
+			body {
+				margin: 0 auto;
+				max-width: 40em;
+				width: 88%;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<main id="main">
+			<p>The main content.</p>
+		</main>
+
+
+		<script>
+			let elem = document.querySelector('#main');
+
+			// Get the ID of the element
+			// returns "main"
+			let id = elem.id;
+			console.log(id);
+
+			// Set the ID of the element
+			elem.id = 'secondary';
+
+			// Get the parentNode of the element
+			// This property is read-only
+			let parent = elem.parentNode;
+			console.log(parent);
+		</script>
+	</body>
+</html>

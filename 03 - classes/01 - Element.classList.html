@@ -3,16 +3,15 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>classList</title>
+		<title>Element.classList</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Styles -->
 		<style type="text/css">
 			body {
+				margin: 0 auto;
 				max-width: 40em;
 				width: 88%;
-				margin-left: auto;
-				margin-right: auto;
 			}
 
 			.tuna {
@@ -39,19 +38,19 @@
 
 
 		<script>
-			var elem = document.querySelector('#sandwich');
+			let elem = document.querySelector('#sandwich');
 
-			// Add a class
+			// Add the .turkey class
 			elem.classList.add('turkey');
 
-			// Remove a class
+			// Remove the .tuna class
 			elem.classList.remove('tuna');
 
-			// Toggle a class
+			// Toggle the .tomato class on or off
 			// (Add the class if it's not already on the element, remove it if it is.)
 			elem.classList.toggle('tomato');
 
-			// Check if an element has a specific class
+			// Check if an element has the .mayo class
 			if (elem.classList.contains('mayo')) {
 				console.log('add mayo!');
 			}

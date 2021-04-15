@@ -6,91 +6,81 @@
 		<title>Project Complete</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- Styles -->
 		<style type="text/css">
 			body {
-				margin-left: auto;
-				margin-right: auto;
+				margin: 0 auto;
 				max-width: 40em;
 				width: 88%;
 			}
 
-			.accordion-content {
-				display: none;
+			/**
+			 * Form Styles
+			 */
+
+			label,
+			input {
+				display: block;
+				width: 100%;
 			}
 
-			.accordion-content.active {
-				display: block;
+			input {
+				margin-bottom: 1em;
+			}
+
+
+			/**
+			 * Active Button Style
+			 */
+			[aria-pressed="true"] {
+				background-color: #0088cc;
+				color: #ffffff;
 			}
 		</style>
 	</head>
 
 	<body>
 
-		<p><a class="accordion-toggle" href="#content-1">Show More 1</a></p>
+		<h1>Change Password</h1>
 
-		<div class="accordion-content" id="content-1">
-			<h2>Anchor's Away!</h2>
+		<form>
 
-			<p>Fore furl holystone mutiny lugsail hempen halter Brethren of the Coast Corsair. Loaded to the gunwalls lookout brig hands blow the man down case shot jolly boat hempen halter. Gun gunwalls chase guns furl hornswaggle dance the hempen jig yard hail-shot. Pressgang quarterdeck prow lugger spanker fluke broadside reef.</p>
+			<label for="current-pw">Current Password</label>
+			<input type="password" id="current-pw">
 
-			<p>Hempen halter me gangplank snow smartly boom fire ship aft. Rope's end draught interloper schooner ho wench jury mast lateen sail. Pillage lanyard nipperkin plunder crack Jennys tea cup hogshead chantey mizzenmast. Spanker blow the man down Buccaneer Sail ho rum tender warp brigantine.</p>
-		</div>
+			<label for="new-pw">New Password</label>
+			<input type="password" id="new-pw">
 
+			<p><button type="button" data-password aria-pressed="false">Show Passwords</button></p>
 
+			<p><button>Change Password</button></p>
 
-		<p><a class="accordion-toggle" href="#content-2">Show More 2</a></p>
-
-		<div class="accordion-content" id="content-2">
-			<h2>Man O' War</h2>
-
-			<p>Man-of-war booty brigantine fire ship tack no prey, no pay wherry lee. Reef heave to line chandler fore cable smartly me. Avast list spanker Arr fathom American Main lookout grapple. Jolly boat black spot chandler list chantey pinnace brig Yellow Jack.</p>
-
-			<p>Chantey Davy Jones' Locker snow jib careen galleon Admiral of the Black lass. Rum booty heave to grog hempen halter gangway long clothes wherry. Mutiny chase Sea Legs grapple crow's nest wherry jury mast lateen sail. Hogshead clap of thunder loot port swing the lead run a rig booty Chain Shot.</p>
-		</div>
+		</form>
 
 
-
-		<p><a class="accordion-toggle" href="#content-3">Show More 3</a></p>
-
-		<div class="accordion-content" id="content-3">
-			<h2>Corsair</h2>
-
-			<p>Line Corsair haul wind pink provost hardtack keelhaul hang the jib. Splice the main brace matey hornswaggle strike colors run a shot across the bow cackle fruit hang the jib jack. Sheet bounty wherry nipperkin belay flogging Chain Shot main sheet. Lad Spanish Main barque port smartly Chain Shot deadlights Jack Ketch.</p>
-
-			<p>Flogging heave down sloop me squiffy barkadeer loot chantey. Ye spike port lugsail belaying pin nipperkin loot yardarm. Prow gangplank six pounders chase guns pressgang chandler Shiver me timbers piracy. Hearties Shiver me timbers sloop driver fire in the hole gaff prow gally.</p>
-		</div>
-
-
-		<!-- Scripts -->
 		<script>
-			// Listen for clicks on the document
-			document.addEventListener('click', function (event) {
+			// Get the password toggle and password fields
+			let toggle = document.querySelector('[data-password]');
+			let fields = document.querySelectorAll('[type="password"]');
 
-				// Bail if our clicked element doesn't have the .accordion-toggle class
-				if (!event.target.classList.contains('accordion-toggle')) return;
+			// Listen for clicks on the toggle button
+			toggle.addEventListener('click', function (event) {
 
-				// Get the target content
-				var content = document.querySelector(event.target.hash);
-				if (!content) return;
+				// Get the value of the [aria-pressed] attribute
+				let pressed = event.target.getAttribute('aria-pressed');
 
-				// Prevent default link behavior
-				event.preventDefault();
-
-				// If the content is already expanded, collapse it and quit
-				if (content.classList.contains('active')) {
-					content.classList.remove('active');
-					return;
+				// If button isn't pressed yet, press it and show fields
+				// Otherwise, unpress it and hide the fields
+				if (pressed === 'false') {
+					event.target.setAttribute('aria-pressed', 'true');
+					for (let field of fields) {
+						field.type = 'text';
+					}
+				} else {
+					event.target.setAttribute('aria-pressed', 'false');
+					for (let field of fields) {
+						field.type = 'password';
+					}
 				}
-
-				// Get all active accordion content, loop through it, and close it
-				var accordions = Array.from(document.querySelectorAll('.accordion-content.active'));
-				accordions.forEach(function (accordion) {
-					accordion.classList.remove('active');
-				});
-
-				// Open our target content area
-				content.classList.add('active');
 
 			});
 		</script>

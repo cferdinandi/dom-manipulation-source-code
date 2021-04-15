@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Attributes vs. Properties</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<style type="text/css">
+			body {
+				margin: 0 auto;
+				max-width: 30em;
+				width: 88%;
+			}
+
+			label,
+			input {
+				display: block;
+				margin-bottom: 0.25em;
+				width: 100%;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<h1>Attributes vs. Properties</h1>
+
+		<p>Hello</p>
+
+		<label for="greeting">Greeting</label>
+		<input type="text" id="greeting">
+
+
+		<script>
+			//
+			// Update the ID
+			//
+
+			let p = document.querySelector('p');
+			p.setAttribute('id', 'first-paragraph');
+
+			console.log('p.id', p.id);
+			console.log('p.getAttribute("id")', p.getAttribute('id'));
+
+
+			//
+			// Update the field value
+			//
+
+			let greeting = document.querySelector('#greeting');
+
+			function update () {
+				greeting.setAttribute('value', 'Hello there!');
+				console.log('greeting.value', greeting.value);
+				console.log('greeting.getAttribute("value")', greeting.getAttribute('value'));
+			}
+		</script>
+	</body>
+</html>
